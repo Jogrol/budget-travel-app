@@ -10,9 +10,7 @@ class App extends Component {
         <header className="App-header">
           <NavBar />
         </header>
-        <body>
           <AddExpenseContainer />
-        </body>
       </div>
     );
   }

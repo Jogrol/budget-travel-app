@@ -7,7 +7,9 @@ export class AddExpenseContainer extends Component {
 
     state = {
         name: '',
+        amount: ''
     }
+
 
     static propTypes = {
 
@@ -20,15 +22,16 @@ export class AddExpenseContainer extends Component {
       }
 
     onSubmit = (event) => {
-          console.log(event)
         event.preventDefault()
         this.setState({
             name: '',
+            amount: ''
           })
       }
       
 
     render() {
+        console.log(this.state)
         return (
         <div>
             <AddExpenseForm  
