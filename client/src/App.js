@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import NavBar from './components/NavBar';
+import AddExpenseContainer from './components/AddExpenseContainer'
 
 
 class App extends Component {
@@ -9,10 +10,7 @@ class App extends Component {
         <header className="App-header">
           <NavBar />
         </header>
-        <body>
-  
-
-        </body>
+          <AddExpenseContainer />
       </div>
     );
   }
