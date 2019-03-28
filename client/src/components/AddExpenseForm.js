@@ -9,26 +9,24 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 export default function AddExpenseForm (props) {
 
     return(
-        <div>
-        <Card>
-            <CardContent>
-                <Typography component="h6" variant="h4" gutterBottom>
-                    Add expense
+        <div style={{ textAlign: 'center'}}>
+        <Card style={{display: 'inline-block', margin: '5px'}}>
+            <CardContent  >
+                <Typography component="h4" variant="h5" gutterBottom>
+                    ADD EXPENSIVE
                 </Typography>
-                <p>What did you spent it for?</p>
                 <form onSubmit={props.onSubmit} >
                     <TextField
-                        id="name"
-                        label="name"
-                        placeholder="name"
-                        name="name" 
+                        id="description"
+                        label=" description"
+                        placeholder=" description"
+                        name=" description" 
                         value={props.values.name}
                         onChange={props.onChange}
                         margin="normal"
                         variant="outlined"
                     />
                     <br/>
-                    <p>How much do you spent?</p>
                     <TextField
                         id="amount"
                         label="amount"
@@ -43,7 +41,7 @@ export default function AddExpenseForm (props) {
                         }}
                     />
                     <br/>
-                    <Button type="submit" variant="contained">Submit</Button>
+                    <Button type="submit" variant="contained">ADD</Button>
                 </form>
             </CardContent>
         </Card>
