@@ -16,3 +16,9 @@ type Post {
   title: String!
   content: String!
 }
+
+type Expensive {
+  id: ID!
+  description: String!
+  ammount: Float!
+}
