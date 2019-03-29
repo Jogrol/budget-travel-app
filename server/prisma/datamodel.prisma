@@ -4,3 +4,9 @@ type Post {
   title: String!
   content: String!
 }
+
+type Expense {
+  id: ID! @unique
+  description: String!
+  ammount: Float!
+}

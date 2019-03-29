@@ -4,6 +4,9 @@ import { Context } from './utils'
 
 const resolvers = {
   Query: {
+    expenses(parent, args, context: Context) {
+      return context.prisma.expenses()
+    },
     feed(parent, args, context: Context) {
       return context.prisma.posts({ where: { published: true } })
     },
@@ -17,6 +20,9 @@ const resolvers = {
   Mutation: {
     createDraft(parent, { title, content }, context: Context) {
       return context.prisma.createPost({ title, content })
+    },
+    createExpense(parent, { description, ammount }, context: Context) {
+      return context.prisma.createExpense({ description, ammount })
     },
     deletePost(parent, { id }, context: Context) {
       return context.prisma.deletePost({ id })

@@ -2,7 +2,11 @@
   // Please don't change this file manually but run `prisma generate` to update it.
   // For more information, please read the docs: https://www.prisma.io/docs/prisma-client/
 
-export const typeDefs = /* GraphQL */ `type AggregatePost {
+export const typeDefs = /* GraphQL */ `type AggregateExpense {
+  count: Int!
+}
+
+type AggregatePost {
   count: Int!
 }
 
@@ -10,9 +14,130 @@ type BatchPayload {
   count: Long!
 }
 
+type Expense {
+  id: ID!
+  description: String!
+  ammount: Float!
+}
+
+type ExpenseConnection {
+  pageInfo: PageInfo!
+  edges: [ExpenseEdge]!
+  aggregate: AggregateExpense!
+}
+
+input ExpenseCreateInput {
+  description: String!
+  ammount: Float!
+}
+
+type ExpenseEdge {
+  node: Expense!
+  cursor: String!
+}
+
+enum ExpenseOrderByInput {
+  id_ASC
+  id_DESC
+  description_ASC
+  description_DESC
+  ammount_ASC
+  ammount_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type ExpensePreviousValues {
+  id: ID!
+  description: String!
+  ammount: Float!
+}
+
+type ExpenseSubscriptionPayload {
+  mutation: MutationType!
+  node: Expense
+  updatedFields: [String!]
+  previousValues: ExpensePreviousValues
+}
+
+input ExpenseSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: ExpenseWhereInput
+  AND: [ExpenseSubscriptionWhereInput!]
+  OR: [ExpenseSubscriptionWhereInput!]
+  NOT: [ExpenseSubscriptionWhereInput!]
+}
+
+input ExpenseUpdateInput {
+  description: String
+  ammount: Float
+}
+
+input ExpenseUpdateManyMutationInput {
+  description: String
+  ammount: Float
+}
+
+input ExpenseWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  description: String
+  description_not: String
+  description_in: [String!]
+  description_not_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_gt: String
+  description_gte: String
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
+  ammount: Float
+  ammount_not: Float
+  ammount_in: [Float!]
+  ammount_not_in: [Float!]
+  ammount_lt: Float
+  ammount_lte: Float
+  ammount_gt: Float
+  ammount_gte: Float
+  AND: [ExpenseWhereInput!]
+  OR: [ExpenseWhereInput!]
+  NOT: [ExpenseWhereInput!]
+}
+
+input ExpenseWhereUniqueInput {
+  id: ID
+}
+
 scalar Long
 
 type Mutation {
+  createExpense(data: ExpenseCreateInput!): Expense!
+  updateExpense(data: ExpenseUpdateInput!, where: ExpenseWhereUniqueInput!): Expense
+  updateManyExpenses(data: ExpenseUpdateManyMutationInput!, where: ExpenseWhereInput): BatchPayload!
+  upsertExpense(where: ExpenseWhereUniqueInput!, create: ExpenseCreateInput!, update: ExpenseUpdateInput!): Expense!
+  deleteExpense(where: ExpenseWhereUniqueInput!): Expense
+  deleteManyExpenses(where: ExpenseWhereInput): BatchPayload!
   createPost(data: PostCreateInput!): Post!
   updatePost(data: PostUpdateInput!, where: PostWhereUniqueInput!): Post
   updateManyPosts(data: PostUpdateManyMutationInput!, where: PostWhereInput): BatchPayload!
@@ -169,6 +294,9 @@ input PostWhereUniqueInput {
 }
 
 type Query {
+  expense(where: ExpenseWhereUniqueInput!): Expense
+  expenses(where: ExpenseWhereInput, orderBy: ExpenseOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Expense]!
+  expensesConnection(where: ExpenseWhereInput, orderBy: ExpenseOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ExpenseConnection!
   post(where: PostWhereUniqueInput!): Post
   posts(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Post]!
   postsConnection(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PostConnection!
@@ -176,6 +304,7 @@ type Query {
 }
 
 type Subscription {
+  expense(where: ExpenseSubscriptionWhereInput): ExpenseSubscriptionPayload
   post(where: PostSubscriptionWhereInput): PostSubscriptionPayload
 }
 `

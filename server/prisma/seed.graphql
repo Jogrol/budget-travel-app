@@ -24,6 +24,7 @@ mutation {
     data: {
       title: "Follow Prisma on Twitter"
       content: "https://twitter.com/prisma"
+      published: true
     }
   ) {
     id
