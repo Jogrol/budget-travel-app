@@ -1,18 +1,27 @@
 
 import React, { Component } from 'react'
 import AddExpenseForm from './AddExpenseForm'
+import ggl from 'graphql-tag'
+import {graphql} from "react-apollo"
+
 // import PropTypes from 'prop-types'
 
-export class AddExpenseContainer extends Component {
+const createExpense = ggl`
+  mutation createExpense ($description: String!, $ammount: Float!) {
+    createExpense (description: $description, ammount: $ammount)
+  }
+`;
+
+
+
+class AddExpenseContainer extends Component {
 
     state = {
         description: '',
         amount: ''
     }
 
-    static propTypes = {
-
-    }
+  
 
     onChange = (event) => {
         this.setState({
@@ -21,6 +30,8 @@ export class AddExpenseContainer extends Component {
       }
 
     onSubmit = (event) => {
+      console.log(this.props)
+        this.props.createExpense()
         event.preventDefault()
         this.setState({
             description: '',
@@ -39,6 +50,10 @@ export class AddExpenseContainer extends Component {
         </div>
         )
     }
+
+    static propTypes = {
+
+    }
 }
 
-export default AddExpenseContainer
+export default graphql(createExpense, {name: 'createExpense'})(AddExpenseContainer)
