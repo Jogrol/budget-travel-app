@@ -44,7 +44,7 @@ I will include:
 - Material UI
 
 # Features built so far (overview incl pull requests)
-- Simple form to add a expense to the prisma db.
+- Simple form to add an expense to the prisma db.
 
 # Workflow
 ## My agile workflow and Trello board
