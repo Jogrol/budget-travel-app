@@ -14,36 +14,37 @@ The app should be innovative and playful. Creating a budget and keep track of yo
 
 
 ## User stories (work in progress)
+
+### Spendings:
+- As a user, I would like to add the expenses I have made during my trip.
+- As a user, I would like to keep track of the expenses I have made during my trip.
+- As a user, I would like to change the expenses I have made during my trip.
+- As a user, I would like to delete the expenses I have made during my trip.
+- As a user, I would like to add expenses that I have made in the countries currency
+- As a user, I would like to add expenses that I have made in my own currency.
+- As a user, I would like to check how much I have to spend per category. 
+
 ### Budget: 
 - As a user, I would like to create a budget based on the total of days and average spent.
 - As a user, I would like to create a budget based on a couple of questions.
 - As a user, I would like to create a budget based on a couple of questions and or suggestions from the app. 
-
-### Spendings:
-- As a user, I would like to add the expenses I have made during my trip.
-- As a user, I would like to add expenses that I have made in the countries currency
-- As a user, I would like to change the expenses I have made during my trip.
-- As a user, I would like to delete the expenses I have made during my trip.
-- As a user, I would like to keep track of the expenses I have made during my trip.
-- As a user, I would like to add expenses that I have made in my own currency.
-- As a user, I would like to add expenses that I have made in the visiting’s country currency.
-- As a user, I would like to check how much I have to spend per category. 
 
 ### Tips:
 - As a user, I would like to update my budget based on the spending that I already did.
 - As a user, I would like to receive tips and suggestions on how to deal with my budget based on the spending I did.
 
 # Technologies used:
-For this project, I’m planning to use all the technologies I have learned during Codaisseur Bootcamp. I will include:
+For this project, I’m planning to use all the technologies I have learned during Codaisseur Bootcamp. 
+I will include:
 - JavaScript
 - TypeScript
 - React
 - GraphQL
-- Type ORM.
-- Postgres DB
-- Material IU
+- Prisma (testing)
+- Material UI
 
 # Features built so far (overview incl pull requests)
+- Simple form to add a expense to the prisma db.
 
 # Workflow
 ## My agile workflow and Trello board
