@@ -5,10 +5,11 @@ import {Query} from 'react-apollo'
 
 const GET_EXPENSES = gql`
 {
-    expenses {
-      description
-      ammount
-    }
+    expenses{
+        id
+        description
+        ammount
+  }
 }
 `;
 

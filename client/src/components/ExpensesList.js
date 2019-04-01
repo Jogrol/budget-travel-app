@@ -21,7 +21,6 @@ const styles = theme => ({
 
 function ExpensesList(props) {
   const { classes } = props;
-
   return (
     <Paper className={classes.root}>
       <Table className={classes.table}>
@@ -38,7 +37,7 @@ function ExpensesList(props) {
                 {row.description}
               </TableCell>
               <TableCell align="right" component="th" scope="row">
-                {row.ammount}
+                € {row.ammount}
               </TableCell>
             </TableRow>
           ))}

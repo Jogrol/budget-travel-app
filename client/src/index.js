@@ -3,27 +3,12 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import ApolloClient from "apollo-boost";
-import ggl from 'graphql-tag'
 import { ApolloProvider } from "react-apollo";
 
 
 const client = new ApolloClient({
   uri: "https://eu1.prisma.sh/public-nebulacarp-301/my-app/dev"
 });
-
-export const request = ggl`
-{
-    expenses {
-      description
-      ammount
-    }
-  }
-`;
-
-client.query({
-  query: request
-}).then(res => console.log(res))
-
 
 ReactDOM.render(
     <ApolloProvider client={client}>
