@@ -7,8 +7,11 @@ import {graphql} from "react-apollo"
 // import PropTypes from 'prop-types'
 
 const createExpense = ggl`
-  mutation createExpense ($description: String!, $ammount: Float!) {
-    createExpense (description: $description, ammount: $ammount)
+  mutation($description: String!){
+    createExpense (description: hotel, ammount: 150) {
+      description
+      ammount
+    }
   }
 `;
 
@@ -30,17 +33,17 @@ class AddExpenseContainer extends Component {
       }
 
     onSubmit = (event) => {
-      console.log(this.props)
-        this.props.createExpense()
         event.preventDefault()
-        this.setState({
-            description: '',
-            amount: ''
-          })
+        // this.setState({
+        //     description: '',
+        //     amount: ''
+        //   })
+        this.props.createExpense()
+        // this.props.mutate()
       }
 
     render() {
-        console.log(this.state)
+      console.log(this.props)
         return (
         <div>
             <AddExpenseForm  
@@ -56,4 +59,4 @@ class AddExpenseContainer extends Component {
     }
 }
 
-export default graphql(createExpense, {name: 'createExpense'})(AddExpenseContainer)
+export default graphql(createExpense,{name: "createExpense"})(AddExpenseContainer)

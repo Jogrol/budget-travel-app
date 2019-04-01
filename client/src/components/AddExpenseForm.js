@@ -18,9 +18,9 @@ export default function AddExpenseForm (props) {
                 <form onSubmit={props.onSubmit} >
                     <TextField
                         id="description"
-                        label=" description"
-                        placeholder=" description"
-                        name=" description" 
+                        label="description"
+                        placeholder="description"
+                        name="description" 
                         value={props.values.name}
                         onChange={props.onChange}
                         margin="normal"
