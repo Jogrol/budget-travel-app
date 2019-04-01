@@ -11,10 +11,9 @@ const client = new ApolloClient({
   uri: "https://eu1.prisma.sh/public-nebulacarp-301/my-app/dev"
 });
 
-
-const request = ggl`
+export const request = ggl`
 {
-    expenses{
+    expenses {
       description
       ammount
     }
@@ -24,7 +23,6 @@ const request = ggl`
 client.query({
   query: request
 }).then(res => console.log(res))
-
 
 
 ReactDOM.render(

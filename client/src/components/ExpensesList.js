@@ -15,26 +15,11 @@ const styles = theme => ({
     overflowX: 'auto',
   },
   table: {
-    minWidth: 700,
+    minWidth: 200,
   },
 });
 
-let id = 0;
-function createData(description, ammount) {
-  id += 1;
-  return {id, description, ammount};
-}
-
-const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
-
 function ExpensesList(props) {
-
   const { classes } = props;
 
   return (
@@ -44,16 +29,17 @@ function ExpensesList(props) {
           <TableRow>
             <TableCell>Description</TableCell>
             <TableCell align="right">Ammount</TableCell>
-
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map(row => (
+          {props.expenses.map(row => (
             <TableRow key={row.id}>
               <TableCell component="th" scope="row">
                 {row.description}
               </TableCell>
-              <TableCell align="right">{row.ammount}</TableCell>
+              <TableCell align="right" component="th" scope="row">
+                {row.ammount}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
