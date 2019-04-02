@@ -1,30 +1,17 @@
 
 import React, { Component } from 'react'
 import AddExpenseForm from './AddExpenseForm'
-import ggl from 'graphql-tag'
-import {graphql} from "react-apollo"
-
-// import PropTypes from 'prop-types'
-
-const createExpense = ggl`
-  mutation($description: String!){
-    createExpense (description: hotel, ammount: 150) {
-      description
-      ammount
-    }
-  }
-`;
-
+import gql from "graphql-tag";
+import { graphql} from "react-apollo"
 
 
 class AddExpenseContainer extends Component {
 
     state = {
         description: '',
-        amount: ''
+        ammount: 0
     }
-
-  
+    
 
     onChange = (event) => {
         this.setState({
@@ -34,17 +21,17 @@ class AddExpenseContainer extends Component {
 
     onSubmit = (event) => {
         event.preventDefault()
-        // this.setState({
-        //     description: '',
-        //     amount: ''
-        //   })
-        this.props.createExpense()
-        // this.props.mutate()
+        const description = this.state.description
+        const ammount = Number(this.state.ammount)
+
+        this.props.mutate({
+          variables: {description, ammount}
+        })
       }
 
     render() {
-      console.log(this.props)
         return (
+    
         <div>
             <AddExpenseForm  
                 onSubmit={this.onSubmit}
@@ -55,8 +42,21 @@ class AddExpenseContainer extends Component {
     }
 
     static propTypes = {
-
+      
     }
 }
 
-export default graphql(createExpense,{name: "createExpense"})(AddExpenseContainer)
+const CREATE_EXPENSE = gql`
+  mutation createExpense($description: String!, $ammount: Float!) {
+    createExpense(description: $description, ammount: $ammount) {
+      description
+      ammount
+    }
+  }
+`
+const NewEntryWithData = graphql(CREATE_EXPENSE)(AddExpenseContainer);
+
+
+export default NewEntryWithData
+
+

@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import ApolloClient from "apollo-boost";
+import ApolloClient from "apollo-boost"
 import { ApolloProvider } from "react-apollo";
 
 
 const client = new ApolloClient({
-  uri: "https://eu1.prisma.sh/public-nebulacarp-301/my-app/dev"
+  uri: "http://localhost:4000"
 });
 
 ReactDOM.render(

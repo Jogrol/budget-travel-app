@@ -21,18 +21,18 @@ export default function AddExpenseForm (props) {
                         label="description"
                         placeholder="description"
                         name="description" 
-                        value={props.values.name}
+                        value={props.values.description}
                         onChange={props.onChange}
                         margin="normal"
                         variant="outlined"
                     />
                     <br/>
                     <TextField
-                        id="amount"
-                        label="amount"
-                        placeholder="amount"
-                        name="amount" 
-                        value={props.values.amount}
+                        id="ammount"
+                        label="ammount"
+                        placeholder="ammount"
+                        name="ammount" 
+                        value={props.values.ammount}
                         onChange={props.onChange}
                         margin="normal"
                         variant="outlined"
