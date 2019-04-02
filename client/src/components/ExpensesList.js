@@ -7,6 +7,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const styles = theme => ({
   root: {
@@ -28,6 +29,7 @@ function ExpensesList(props) {
           <TableRow>
             <TableCell>Description</TableCell>
             <TableCell align="right">Ammount</TableCell>
+            <TableCell align="right"></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -38,6 +40,9 @@ function ExpensesList(props) {
               </TableCell>
               <TableCell align="right" component="th" scope="row">
                 € {row.ammount}
+              </TableCell>
+              <TableCell align="right" component="th" scope="row">
+              <DeleteIcon />
               </TableCell>
             </TableRow>
           ))}
