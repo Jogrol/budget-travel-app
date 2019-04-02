@@ -28,9 +28,12 @@ const DELETE_EXPENSE = gql`
 
 class ExpensesListContainer extends Component {
 
-
-
-   
+  deleteExpense = (id) => {
+    this.props.deleteExpense({
+      variables: {id}
+    })
+    .catch(error => console.log(error))
+  }
   render() {
     return (
     <Query query={GET_EXPENSES}>
@@ -39,7 +42,7 @@ class ExpensesListContainer extends Component {
       if (error) return `Error! ${error.message}`;
       return (
         <div>
-        <ExpensesList expenses={data.expenses} />
+        <ExpensesList expenses={data.expenses} delete={this.deleteExpense}/>
         </div>
       );
     }}
