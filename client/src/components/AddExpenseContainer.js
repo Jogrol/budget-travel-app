@@ -50,9 +50,6 @@ class AddExpenseContainer extends Component {
         </div>
         )
     }
-    static propTypes = {
-      
-    }
 }
 
 const NewEntryWithData = graphql(CREATE_EXPENSE, {

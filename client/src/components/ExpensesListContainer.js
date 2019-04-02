@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import ExpensesList from './ExpensesList'
 import gql from 'graphql-tag'
-import {Query} from 'react-apollo'
+import {Query, graphql} from 'react-apollo'
+
+
 
 const GET_EXPENSES = gql`
   query Expenses
@@ -14,7 +16,20 @@ const GET_EXPENSES = gql`
     }
 `;
 
-export default class ExpensesListContainer extends Component {
+const DELETE_EXPENSE = gql`
+  mutation deleteExpense($id: ID!) {
+    deleteExpense(id: $id) {
+      id
+      description
+      ammount
+    }
+  }
+`
+
+class ExpensesListContainer extends Component {
+
+
+
    
   render() {
     return (
@@ -31,3 +46,12 @@ export default class ExpensesListContainer extends Component {
   </Query>)
   }
 }
+
+const NewEntryWithData = graphql(DELETE_EXPENSE, {
+  name: "deleteExpense",
+  options: {
+    refetchQueries: ['Expenses']
+  }
+})(ExpensesListContainer);
+
+export default NewEntryWithData
