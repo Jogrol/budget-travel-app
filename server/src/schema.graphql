@@ -1,0 +1,27 @@
+type Query {
+  feed: [Post!]!
+  expenses: [Expense]
+  drafts: [Post!]!
+  post(id: ID!): Post
+}
+
+type Mutation {
+  createDraft(title: String!, content: String): Post
+  deletePost(id: ID!): Post
+  publish(id: ID!): Post
+  deleteExpense(id: ID!): Expense
+  createExpense(description: String!, ammount: Float!): Expense
+}
+
+type Post {
+  id: ID!
+  published: Boolean!
+  title: String!
+  content: String!
+}
+
+type Expense {
+  id: ID!
+  description: String!
+  ammount: Float!
+}
