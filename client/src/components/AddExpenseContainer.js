@@ -26,6 +26,10 @@ class AddExpenseContainer extends Component {
     handleClickOpen = () => {
       this.setState({ open: true });
     };
+
+    handleClickClose = () => {
+      this.setState({ open: false });
+    };
  
     onChange = (event) => {
         this.setState({
@@ -45,7 +49,6 @@ class AddExpenseContainer extends Component {
       }
 
     render() {
-        console.log(this.props)
         return (
         <div>
             <AddExpenseForm  
@@ -53,7 +56,8 @@ class AddExpenseContainer extends Component {
                 onChange={this.onChange}
                 values={this.state}
                 handleClickOpen={this.handleClickOpen}
-                open={this.state.open} />
+                open={this.state.open}
+                handleClickClose={this.handleClickClose}/>
         </div>
         )
     }

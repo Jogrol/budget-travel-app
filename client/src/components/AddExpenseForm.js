@@ -5,7 +5,6 @@ import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
 import { CardContent } from '@material-ui/core';
 import InputAdornment from '@material-ui/core/InputAdornment';
-import AddIcon from '@material-ui/icons/Add';
 import Dialog from '@material-ui/core/Dialog'
 
 export default function AddExpenseForm (props) {
@@ -51,7 +50,8 @@ export default function AddExpenseForm (props) {
                         }}
                     />
                     <br/>
-                    <Button type="submit" variant="contained"><AddIcon /></Button>
+                    <Button type="submit" variant="contained">Add</Button>
+                    <Button onClick={props.handleClickClose}>Close</Button>
                 </form>
             </CardContent>
             </Card>
