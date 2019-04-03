@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react'
 import AddExpenseForm from './AddExpenseForm'
+
 import gql from "graphql-tag";
 import { graphql} from "react-apollo"
 
@@ -13,15 +14,23 @@ const CREATE_EXPENSE = gql`
     }
   }
 `
-
 class AddExpenseContainer extends Component {
 
     state = {
         description: '',
-        ammount: ' '
+        ammount: ' ',
+        open: false,
+   
     }
     
+    handleClickOpen = () => {
+      this.setState({ open: true });
+    };
 
+    handleClickClose = () => {
+      this.setState({ open: false });
+    };
+ 
     onChange = (event) => {
         this.setState({
           [event.target.name]: event.target.value
@@ -32,26 +41,25 @@ class AddExpenseContainer extends Component {
         event.preventDefault()
         const description = this.state.description
         const ammount = Number(this.state.ammount)
+        this.setState({ open: false });
         this.props.createExpense({
           variables: {description, ammount}
         })
-        .then(({data}) => console.log(data))
         .catch(error => console.log(error))
       }
 
     render() {
-        console.log(this.props)
         return (
         <div>
             <AddExpenseForm  
                 onSubmit={this.onSubmit}
                 onChange={this.onChange}
-                values={this.state} />
+                values={this.state}
+                handleClickOpen={this.handleClickOpen}
+                open={this.state.open}
+                handleClickClose={this.handleClickClose}/>
         </div>
         )
-    }
-    static propTypes = {
-      
     }
 }
 

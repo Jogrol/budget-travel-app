@@ -18,11 +18,16 @@ const resolvers = {
     },
   },
   Mutation: {
-    createDraft(parent, { title, content }, context: Context) {
+     createDraft(parent, { title, content }, context: Context) {
       return context.prisma.createPost({ title, content })
     },
     createExpense(parent, { description, ammount }, context: Context) {
-      return context.prisma.createExpense({ description, ammount })
+      return context.prisma.createExpense({ 
+        description, 
+        ammount })
+    },
+    deleteExpense(parent, { id }, context: Context) {
+      return context.prisma.deleteExpense({ id })
     },
     deletePost(parent, { id }, context: Context) {
       return context.prisma.deletePost({ id })

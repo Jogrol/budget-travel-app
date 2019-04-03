@@ -1,6 +1,6 @@
 type Query {
   feed: [Post!]!
-  expenses: [Expensive]
+  expenses: [Expense]
   drafts: [Post!]!
   post(id: ID!): Post
 }
@@ -9,7 +9,8 @@ type Mutation {
   createDraft(title: String!, content: String): Post
   deletePost(id: ID!): Post
   publish(id: ID!): Post
-  createExpense(description: String!, ammount: Float!): Expensive
+  deleteExpense(id: ID!): Expense
+  createExpense(description: String!, ammount: Float!): Expense
 }
 
 type Post {
@@ -19,7 +20,7 @@ type Post {
   content: String!
 }
 
-type Expensive {
+type Expense {
   id: ID!
   description: String!
   ammount: Float!
