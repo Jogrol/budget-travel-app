@@ -3,8 +3,6 @@ import ExpensesList from './ExpensesList'
 import gql from 'graphql-tag'
 import {Query, graphql} from 'react-apollo'
 
-
-
 const GET_EXPENSES = gql`
   query Expenses
     {
@@ -42,7 +40,10 @@ class ExpensesListContainer extends Component {
       if (error) return `Error! ${error.message}`;
       return (
         <div>
-        <ExpensesList expenses={data.expenses} delete={this.deleteExpense}/>
+        <ExpensesList 
+            expenses={data.expenses} 
+            delete={this.deleteExpense}
+            handleClickOpen={this.handleClickOpen}/>
         </div>
       );
     }}

@@ -5,15 +5,25 @@ import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
 import { CardContent } from '@material-ui/core';
 import InputAdornment from '@material-ui/core/InputAdornment';
+import AddIcon from '@material-ui/icons/Add';
+import Dialog from '@material-ui/core/Dialog'
 
 export default function AddExpenseForm (props) {
 
     return(
         <div style={{ textAlign: 'center'}}>
+        <Button variant="outlined" color="primary" onClick={props.handleClickOpen}>
+            Add expense
+        </Button>
+        <Dialog
+          open={props.open}
+          onClose={props.handleClose}
+          aria-labelledby="form-dialog-title"
+        >
         <Card style={{display: 'inline-block', margin: '5px'}}>
             <CardContent  >
                 <Typography component="h4" variant="h5" gutterBottom>
-                    ADD EXPENSIVE
+                    What did you spend?
                 </Typography>
                 <form onSubmit={props.onSubmit} >
                     <TextField
@@ -41,10 +51,11 @@ export default function AddExpenseForm (props) {
                         }}
                     />
                     <br/>
-                    <Button type="submit" variant="contained">ADD</Button>
+                    <Button type="submit" variant="contained"><AddIcon /></Button>
                 </form>
             </CardContent>
-        </Card>
+            </Card>
+        </Dialog>
     </div>
     )
 } 
