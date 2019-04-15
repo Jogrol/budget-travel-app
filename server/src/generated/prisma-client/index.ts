@@ -670,6 +670,6 @@ export const models: Model[] = [
 export const Prisma = makePrismaClientClass<ClientConstructor<Prisma>>({
   typeDefs,
   models,
-  endpoint: `https://eu1.prisma.sh/public-nebulacarp-301/my-app/dev`
+  endpoint: `https://travel-budget-3d59e145b7.herokuapp.com/my-app/dev`
 });
 export const prisma = new Prisma();

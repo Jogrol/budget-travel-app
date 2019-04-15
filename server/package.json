@@ -1,6 +1,7 @@
 {
   "name": "my-app",
   "scripts": {
+    "postinstall": "tsc",
     "start": "ts-node src/index.ts"
   },
   "dependencies": {
@@ -9,7 +10,7 @@
   },
   "devDependencies": {
     "prisma": "1.29.2",
-    "ts-node": "7.0.1",
+    "ts-node": "^7.0.1",
     "typescript": "3.2.2"
   }
 }
