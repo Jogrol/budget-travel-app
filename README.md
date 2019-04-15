@@ -1,6 +1,9 @@
 # What this project is about?
 To update my portfolio and show what I have learned during the Codaisseur Bootcamp. 
 
+## First basic version is deployed:
+https://travel-budget-app.netlify.com/
+
 # Goals for this project:
 - Create a full-stack app
 - To extend and update my skill set as a full stack developer. 
@@ -18,8 +21,8 @@ The app should be innovative and playful. Creating a budget and keep track of yo
 ### Spendings:
 - As a user, I would like to add the expenses I have made during my trip.
 - As a user, I would like to keep track of the expenses I have made during my trip.
-- As a user, I would like to change the expenses I have made during my trip.
 - As a user, I would like to delete the expenses I have made during my trip.
+- As a user, I would like to change the expenses I have made during my trip.
 - As a user, I would like to add expenses that I have made in the countries currency
 - As a user, I would like to add expenses that I have made in my own currency.
 - As a user, I would like to check how much I have to spend per category. 
@@ -44,7 +47,8 @@ I will include:
 - Material UI
 
 # Features built so far (overview incl pull requests)
-- Simple form to add an expense to the prisma db.
+- Add expense to the overview
+- Delete expense to the overview
 
 # Workflow
 ## My agile workflow and Trello board
