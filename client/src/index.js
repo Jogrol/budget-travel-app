@@ -7,7 +7,7 @@ import { ApolloProvider } from "react-apollo";
 
 
 const client = new ApolloClient({
-  uri: "http://localhost:4000/"
+  uri: "https://frozen-river-89623.herokuapp.com/"
 });
 
 ReactDOM.render(
