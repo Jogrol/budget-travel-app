@@ -7,8 +7,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import DeleteIcon from '@material-ui/icons/Delete';
-import Button from '@material-ui/core/Button';
+import { Link } from 'react-router-dom'
 
 const styles = theme => ({
   root: {
@@ -30,20 +29,16 @@ function ExpensesList(props) {
           <TableRow>
             <TableCell>Description</TableCell>
             <TableCell align="right">Ammount</TableCell>
-            <TableCell align="right"></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {props.expenses.map(row => (
             <TableRow key={row.id}>
-              <TableCell component="th" scope="row">
-                {row.description}
+               <TableCell component="th" scope="row">
+               <Link to ={`/expenses/${row.id}/`} style={{ color: 'inherit', textDecoration: 'none'}}>{row.description}</Link>
               </TableCell>
               <TableCell align="right" component="th" scope="row">
                 € {row.ammount}
-              </TableCell>
-              <TableCell align="right" component="th" scope="row">
-              <Button><DeleteIcon onClick={() => props.delete(row.id)} /></Button>
               </TableCell>
             </TableRow>
           ))}
