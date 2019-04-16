@@ -61,7 +61,6 @@ class ExpenseDetailsContainer extends Component {
                     delete={this.deleteExpense}
                     expense={data.expense} 
                     />
-                <UpdateExpenseFormContainer expense={data.expense}/>
                 </div>
             );
             }}

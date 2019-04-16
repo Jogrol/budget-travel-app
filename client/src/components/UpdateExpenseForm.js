@@ -6,23 +6,23 @@ import Card from '@material-ui/core/Card';
 import { CardContent } from '@material-ui/core';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Dialog from '@material-ui/core/Dialog'
+import IconButton from '@material-ui/core/IconButton';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function UpdateExpenseForm (props) {
 
     return(
-        <div style={{ textAlign: 'center'}}>
-        <Button variant="outlined" color="primary" onClick={props.handleClickOpen}>
-            Change expense
-        </Button>
+        <div>
+        <IconButton onClick={props.handleClickOpen}> <FontAwesomeIcon icon="edit" /></IconButton>
         <Dialog
           open={props.open}
           onClose={props.handleClose}
           aria-labelledby="form-dialog-title"
         >
-        <Card style={{display: 'inline-block', margin: '5px'}}>
+        <Card style={{display: 'inline-block'}}>
             <CardContent  >
                 <Typography component="h4" variant="h5" gutterBottom>
-                    What whould you like to change?
+                    What would you like to change?
                 </Typography>
                 <form onSubmit={props.onSubmit} >
                     <TextField

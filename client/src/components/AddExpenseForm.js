@@ -3,24 +3,24 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
-import { CardContent } from '@material-ui/core';
+import { CardContent, IconButton } from '@material-ui/core';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Dialog from '@material-ui/core/Dialog'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function AddExpenseForm (props) {
 
     return(
         <div style={{ textAlign: 'center'}}>
-        <Button variant="outlined" color="primary" onClick={props.handleClickOpen}>
-            Add expense
-        </Button>
+        <IconButton  onClick={props.handleClickOpen}><FontAwesomeIcon icon="plus-circle" /></IconButton>
         <Dialog
           open={props.open}
           onClose={props.handleClose}
           aria-labelledby="form-dialog-title"
         >
         <Card style={{display: 'inline-block'}}>
-            <CardContent  >
+            <IconButton  style={{float: 'right'}} onClick={props.handleClickClose}><FontAwesomeIcon icon="times" /></IconButton>
+            <CardContent>
                 <Typography component="h4" variant="h5" gutterBottom>
                     What did you spend?
                 </Typography>
@@ -50,8 +50,7 @@ export default function AddExpenseForm (props) {
                         }}
                     />
                     <br/>
-                    <Button type="submit" variant="contained">Add</Button>
-                    <Button onClick={props.handleClickClose}>Close</Button>
+                    <Button type="submit" variant="contained">Submit</Button>
                 </form>
             </CardContent>
             </Card>

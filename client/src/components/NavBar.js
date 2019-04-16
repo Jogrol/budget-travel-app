@@ -91,14 +91,14 @@ class MenuAppBar extends React.Component {
             </Typography>
             {auth && (
               <div>
-                <IconButton
+                {/* <IconButton
                   aria-owns={open ? 'menu-appbar' : undefined}
                   aria-haspopup="true"
                   onClick={this.handleMenu}
                   color="inherit"
                 >
                   <AccountCircle />
-                </IconButton>
+                </IconButton> */}
                 {/* <Menu
                   id="menu-appbar"
                   anchorEl={anchorEl}
