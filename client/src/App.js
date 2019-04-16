@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import NavBar from './components/NavBar';
 import AddExpenseContainer from './components/AddExpenseContainer'
 import ExpenseListContainer from './components/ExpensesListContainer'
+import ExpenseDetailsContainer from './components/ExpenseDetailsContainer'
 
 class App extends Component {
 
@@ -13,7 +14,7 @@ class App extends Component {
           <NavBar />
         </header>
           <ExpenseListContainer />
-          <AddExpenseContainer />
+          <ExpenseDetailsContainer />
       </div>
     );
   }

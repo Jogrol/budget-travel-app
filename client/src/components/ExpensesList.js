@@ -31,19 +31,23 @@ function ExpensesList(props) {
             <TableCell>Description</TableCell>
             <TableCell align="right">Ammount</TableCell>
             <TableCell align="right"></TableCell>
+            <TableCell align="right"></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {props.expenses.map(row => (
             <TableRow key={row.id}>
-              <TableCell component="th" scope="row">
-                {row.description}
+               <TableCell component="th" scope="row">
+               {row.description}
               </TableCell>
               <TableCell align="right" component="th" scope="row">
                 € {row.ammount}
               </TableCell>
               <TableCell align="right" component="th" scope="row">
               <Button><DeleteIcon onClick={() => props.delete(row.id)} /></Button>
+              </TableCell>
+              <TableCell align="right" component="th" scope="row">
+              <Button>More info</Button>
               </TableCell>
             </TableRow>
           ))}
