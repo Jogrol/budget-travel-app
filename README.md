@@ -46,9 +46,11 @@ I will include:
 - Prisma (testing)
 - Material UI
 
-# Features built so far (overview incl pull requests)
+# Features built so far
 - Add expense to the overview
-- Delete expense to the overview
+- Delete expense to the overview 
+- Individual expense page
+- Change expense 
 
 # Workflow
 ## My agile workflow and Trello board
