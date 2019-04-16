@@ -1,7 +1,6 @@
 
 import React, { Component } from 'react'
 import AddExpenseForm from './AddExpenseForm'
-
 import gql from "graphql-tag";
 import { graphql} from "react-apollo"
 
@@ -41,11 +40,11 @@ class AddExpenseContainer extends Component {
         event.preventDefault()
         const description = this.state.description
         const ammount = Number(this.state.ammount)
-        this.setState({ open: false });
         this.props.createExpense({
           variables: {description, ammount}
         })
         .catch(error => console.log(error))
+        this.setState({ open: false , description: '', ammount: ' '});
       }
 
     render() {

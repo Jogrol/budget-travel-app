@@ -4,6 +4,8 @@ import CardContent from '@material-ui/core/CardContent';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
+import DeleteIcon from '@material-ui/icons/Delete';
+import Button from '@material-ui/core/Button';
 
 const styles = {
     card: {
@@ -32,7 +34,9 @@ const { classes } = props;
                 <Typography gutterBottom variant="h5" component="h3">
                     € {props.expense.ammount}
                 </Typography>
+                <Button><DeleteIcon onClick={() => props.delete(props.expense.id)} /></Button>
             </CardContent>
+            
         </Card>
     </div>
   )

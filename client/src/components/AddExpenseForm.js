@@ -19,7 +19,7 @@ export default function AddExpenseForm (props) {
           onClose={props.handleClose}
           aria-labelledby="form-dialog-title"
         >
-        <Card style={{display: 'inline-block', margin: '5px'}}>
+        <Card style={{display: 'inline-block'}}>
             <CardContent  >
                 <Typography component="h4" variant="h5" gutterBottom>
                     What did you spend?

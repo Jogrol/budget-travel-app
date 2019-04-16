@@ -15,24 +15,8 @@ const GET_EXPENSES = gql`
     }
 `;
 
-const DELETE_EXPENSE = gql`
-  mutation deleteExpense($id: ID!) {
-    deleteExpense(id: $id) {
-      id
-      description
-      ammount
-    }
-  }
-`
+export default class ExpensesListContainer extends Component {
 
-class ExpensesListContainer extends Component {
-
-  deleteExpense = (id) => {
-    this.props.deleteExpense({
-      variables: {id}
-    })
-    .catch(error => console.log(error))
-  }
   render() {
     return (
     <Query query={GET_EXPENSES}>
@@ -53,12 +37,3 @@ class ExpensesListContainer extends Component {
   </Query>)
   }
 }
-
-const NewEntryWithData = graphql(DELETE_EXPENSE, {
-  name: "deleteExpense",
-  options: {
-    refetchQueries: ['Expenses']
-  }
-})(ExpensesListContainer);
-
-export default NewEntryWithData
