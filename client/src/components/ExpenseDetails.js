@@ -3,6 +3,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
+import Typography from '@material-ui/core/Typography';
 
 const styles = {
     card: {
@@ -19,12 +20,19 @@ function ExpenseDetails(props) {
 const { classes } = props;
 
   return (
-     
     <div>
+        {console.log(props.expenses)}
         <Card>
             <CardContent>
-                Test
-
+                <Typography gutterBottom variant="h5" component="h2">
+                    Your expense in more detail
+                </Typography>
+                <Typography gutterBottom variant="h5" component="h3">
+                    {props.expenses.description}
+                </Typography>
+                <Typography gutterBottom variant="h5" component="h3">
+                    € {props.expenses.ammount}
+                </Typography>
             </CardContent>
         </Card>
     </div>
