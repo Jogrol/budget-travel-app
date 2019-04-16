@@ -21,17 +21,16 @@ const { classes } = props;
 
   return (
     <div>
-        {console.log(props.expenses)}
         <Card>
             <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">
                     Your expense in more detail
                 </Typography>
                 <Typography gutterBottom variant="h5" component="h3">
-                    {props.expenses.description}
+                    {props.expense.description}
                 </Typography>
                 <Typography gutterBottom variant="h5" component="h3">
-                    € {props.expenses.ammount}
+                    € {props.expense.ammount}
                 </Typography>
             </CardContent>
         </Card>

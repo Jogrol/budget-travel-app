@@ -9,6 +9,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Button from '@material-ui/core/Button';
+import { Link } from 'react-router-dom'
 
 const styles = theme => ({
   root: {
@@ -38,16 +39,13 @@ function ExpensesList(props) {
           {props.expenses.map(row => (
             <TableRow key={row.id}>
                <TableCell component="th" scope="row">
-               {row.description}
+               <Link to ={`/expenses/${row.id}/`}>{row.description}</Link>
               </TableCell>
               <TableCell align="right" component="th" scope="row">
                 € {row.ammount}
               </TableCell>
               <TableCell align="right" component="th" scope="row">
               <Button><DeleteIcon onClick={() => props.delete(row.id)} /></Button>
-              </TableCell>
-              <TableCell align="right" component="th" scope="row">
-              <Button>More info</Button>
               </TableCell>
             </TableRow>
           ))}
