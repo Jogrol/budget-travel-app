@@ -10,6 +10,7 @@ type Mutation {
   createDraft(title: String!, content: String): Post
   deletePost(id: ID!): Post
   publish(id: ID!): Post
+  updateExpense(id: ID!, description: String!, ammount: Float): Expense
   deleteExpense(id: ID!): Expense
   createExpense(description: String!, ammount: Float!): Expense
 }

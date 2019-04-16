@@ -32,6 +32,15 @@ const resolvers = {
     deleteExpense(parent, { id }, context: Context) {
       return context.prisma.deleteExpense({ id })
     },
+    updateExpense(parent, { id, description, ammount }, context: Context) {
+      return context.prisma.updateExpense({
+        where: { id },
+        data: {
+          description,
+          ammount
+        }
+      })
+    },
     deletePost(parent, { id }, context: Context) {
       return context.prisma.deletePost({ id })
     },
