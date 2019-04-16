@@ -3,6 +3,7 @@ type Query {
   expenses: [Expense]
   drafts: [Post!]!
   post(id: ID!): Post
+  expense(id: ID!): Expense
 }
 
 type Mutation {

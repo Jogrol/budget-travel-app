@@ -16,6 +16,9 @@ const resolvers = {
     post(parent, { id }, context: Context) {
       return context.prisma.post({ id })
     },
+    expense(parent, { id }, context: Context) {
+      return context.prisma.expense({ id })
+    },
   },
   Mutation: {
      createDraft(parent, { title, content }, context: Context) {
