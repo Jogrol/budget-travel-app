@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import ExpensesList from './ExpensesList'
 import AddExpenseContainer from './AddExpenseContainer'
 import gql from 'graphql-tag'
-import {Query, graphql} from 'react-apollo'
+import {Query} from 'react-apollo'
 
 const GET_EXPENSES = gql`
   query Expenses

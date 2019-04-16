@@ -25,14 +25,14 @@ const { classes } = props;
     <div>
         <Card>
             <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
-                    Your expense in more detail
+                <Typography gutterBottom variant="h4" component="h2">
+                    Your expense
                 </Typography>
-                <Typography gutterBottom variant="h5" component="h3">
-                    {props.expense.description}
+                <Typography gutterBottom variant="h6" component="h4">
+                    Description: {props.expense.description}
                 </Typography>
-                <Typography gutterBottom variant="h5" component="h3">
-                    € {props.expense.ammount}
+                <Typography gutterBottom variant="h6" component="h4">
+                    Cost: € {props.expense.ammount}
                 </Typography>
                 <Button><DeleteIcon onClick={() => props.delete(props.expense.id)} /></Button>
             </CardContent>

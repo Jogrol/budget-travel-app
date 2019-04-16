@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ExpenseDetails from './ExpenseDetails'
 import gql from 'graphql-tag'
-import {Query, graphql, compose} from 'react-apollo'
+import {Query, graphql} from 'react-apollo'
 import UpdateExpenseFormContainer from './UpdateExpenseFormContainer'
 import {Redirect} from 'react-router-dom'
 
@@ -36,7 +36,7 @@ class ExpenseDetailsContainer extends Component {
           return <Redirect to='/' />
         }
       }
-      
+
     deleteExpense = (id) => {
         this.props.deleteExpense({
           variables: {id}

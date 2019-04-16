@@ -1,6 +1,5 @@
 
 import React, { Component } from 'react'
-import AddExpenseForm from './AddExpenseForm'
 import gql from "graphql-tag";
 import { graphql} from "react-apollo"
 import UpdateExpenseForm from './UpdateExpenseForm'
