@@ -1,6 +1,6 @@
 # Specifies the HTTP endpoint of your Prisma API (deployed to a Prisma Demo server).
-# endpoint: https://travel-budget-3d59e145b7.herokuapp.com/my-app/dev
-endpoint: https://eu1.prisma.sh/public-nebulacarp-301/my-app/dev
+endpoint: https://travel-budget-3d59e145b7.herokuapp.com/my-app/dev
+# endpoint: https://eu1.prisma.sh/public-nebulacarp-301/my-app/dev
 
 # Defines your models, each model is mapped to the database as a table.
 datamodel: datamodel.prisma
