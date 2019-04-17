@@ -12,7 +12,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 export default function UpdateExpenseForm (props) {
 
     return(
-        <div>
+        <div style={{float: 'left'}}>
         <IconButton onClick={props.handleClickOpen}> <FontAwesomeIcon icon="edit" /></IconButton>
         <Dialog
           open={props.open}
@@ -21,6 +21,7 @@ export default function UpdateExpenseForm (props) {
         >
         <Card style={{display: 'inline-block'}}>
             <CardContent  >
+            <IconButton  style={{float: 'right'}} onClick={props.handleClickClose}><FontAwesomeIcon icon="times" /></IconButton>
                 <Typography component="h4" variant="h5" gutterBottom>
                     What would you like to change?
                 </Typography>
@@ -50,10 +51,9 @@ export default function UpdateExpenseForm (props) {
                         }}
                     />
                     <br/>
-                    <Button type="submit" variant="contained">Add</Button>
-                    <Button onClick={props.handleClickClose}>Close</Button>
+                    <Button type="submit" variant="contained">Update</Button>
                 </form>
-            </CardContent>
+                </CardContent>
             </Card>
         </Dialog>
     </div>

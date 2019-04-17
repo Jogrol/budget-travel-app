@@ -8,6 +8,9 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { Link } from 'react-router-dom'
+import Card from '@material-ui/core/Card';
+import { CardContent } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 
 const styles = theme => ({
   root: {
@@ -21,9 +24,22 @@ const styles = theme => ({
 });
 
 function ExpensesList(props) {
-  const { classes } = props;
+  const { classes, expenses } = props;
+
+  console.log(expenses)
+  //const avgPricePerEvent = ticketsFilteredByEvent.reduce((prev, ticket) => prev + Number(ticket.price), 0)/ticketsFilteredByEvent.length
   return (
     <Paper className={classes.root}>
+       <Card>
+         <CardContent>
+          <Typography gutterBottom variant="h4" component="h2">
+                    Your total expense is: € {expenses.reduce((prev, expense) => prev + expense.ammount,0)}
+              </Typography>
+          {/* <Typography gutterBottom variant="h4" component="h2">
+                    and average spend is: € {Math.round(expenses.reduce((prev, expense) => prev + expense.ammount,0)/expenses.length)}
+              </Typography> */}
+         </CardContent>
+       </Card>
       <Table className={classes.table}>
         <TableHead>
           <TableRow>

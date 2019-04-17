@@ -11,8 +11,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 export default function AddExpenseForm (props) {
 
     return(
-        <div style={{ textAlign: 'center'}}>
-        <IconButton  onClick={props.handleClickOpen}><FontAwesomeIcon icon="plus-circle" /></IconButton>
+        <div>
+        <IconButton onClick={props.handleClickOpen}><FontAwesomeIcon icon="plus-circle" /></IconButton>
         <Dialog
           open={props.open}
           onClose={props.handleClose}

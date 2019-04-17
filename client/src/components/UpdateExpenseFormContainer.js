@@ -35,7 +35,7 @@ class UpdateExpenseFormContainer extends Component {
           [event.target.name]: event.target.value
         })
       }
-
+      
     onSubmit = (event) => {
         event.preventDefault()
         const id = this.props.expense.id

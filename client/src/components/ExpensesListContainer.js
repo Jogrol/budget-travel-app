@@ -5,12 +5,11 @@ import gql from 'graphql-tag'
 import {Query} from 'react-apollo'
 
 const GET_EXPENSES = gql`
-  query Expenses
-    {
-        expenses{
-            id
-            description
-            ammount
+  query Expenses{
+      expenses{
+          id
+          description
+          ammount
       }
     }
 `;

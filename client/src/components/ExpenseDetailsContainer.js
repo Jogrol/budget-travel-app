@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import ExpenseDetails from './ExpenseDetails'
 import gql from 'graphql-tag'
 import {Query, graphql} from 'react-apollo'
-import UpdateExpenseFormContainer from './UpdateExpenseFormContainer'
 import {Redirect} from 'react-router-dom'
 
 const GET_EXPENSE = gql`
@@ -24,7 +23,6 @@ const DELETE_EXPENSE = gql`
     }
   }
 `
-
 class ExpenseDetailsContainer extends Component {
 
     state = {

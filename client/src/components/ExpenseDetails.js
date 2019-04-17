@@ -6,9 +6,8 @@ import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import DeleteIcon from '@material-ui/icons/Delete';
 import IconButton from '@material-ui/core/IconButton';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import UpdateExpenseFormContainer from './UpdateExpenseFormContainer'
-import { CardActionArea } from '@material-ui/core';
+
 
 const styles = {
     card: {
@@ -37,8 +36,10 @@ const { classes } = props;
                 <Typography gutterBottom variant="h6" component="h4">
                     Cost: € {props.expense.ammount}
                 </Typography>
-                <IconButton><DeleteIcon onClick={() => props.delete(props.expense.id)} /></IconButton>
+                <div>
                 <UpdateExpenseFormContainer expense={props.expense}/>
+                <IconButton style={{float: 'left'}}><DeleteIcon onClick={() => props.delete(props.expense.id)}/></IconButton>
+                </div>
             </CardContent>
         </Card>
     </div>
