@@ -1,12 +1,21 @@
 type Post {
-  id: ID! @unique
-  published: Boolean! @default(value: "false")
+  id: ID! @id
+  published: Boolean! @default(value: false)
   title: String!
   content: String!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }
 
 type Expense {
-  id: ID! @unique
+  id: ID! @id
   description: String!
-  ammount: Float!
+  ammount: Int!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  category: String!
+  subcategory: String
+  start_date: DateTime!
+  end_date: DateTime
+  days: Float!
 }

@@ -14,10 +14,19 @@ type BatchPayload {
   count: Long!
 }
 
+scalar DateTime
+
 type Expense {
   id: ID!
   description: String!
-  ammount: Float!
+  ammount: Int!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  category: String!
+  subcategory: String
+  start_date: DateTime!
+  end_date: DateTime
+  days: Float!
 }
 
 type ExpenseConnection {
@@ -28,7 +37,12 @@ type ExpenseConnection {
 
 input ExpenseCreateInput {
   description: String!
-  ammount: Float!
+  ammount: Int!
+  category: String!
+  subcategory: String
+  start_date: DateTime!
+  end_date: DateTime
+  days: Float!
 }
 
 type ExpenseEdge {
@@ -47,12 +61,29 @@ enum ExpenseOrderByInput {
   createdAt_DESC
   updatedAt_ASC
   updatedAt_DESC
+  category_ASC
+  category_DESC
+  subcategory_ASC
+  subcategory_DESC
+  start_date_ASC
+  start_date_DESC
+  end_date_ASC
+  end_date_DESC
+  days_ASC
+  days_DESC
 }
 
 type ExpensePreviousValues {
   id: ID!
   description: String!
-  ammount: Float!
+  ammount: Int!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  category: String!
+  subcategory: String
+  start_date: DateTime!
+  end_date: DateTime
+  days: Float!
 }
 
 type ExpenseSubscriptionPayload {
@@ -75,12 +106,22 @@ input ExpenseSubscriptionWhereInput {
 
 input ExpenseUpdateInput {
   description: String
-  ammount: Float
+  ammount: Int
+  category: String
+  subcategory: String
+  start_date: DateTime
+  end_date: DateTime
+  days: Float
 }
 
 input ExpenseUpdateManyMutationInput {
   description: String
-  ammount: Float
+  ammount: Int
+  category: String
+  subcategory: String
+  start_date: DateTime
+  end_date: DateTime
+  days: Float
 }
 
 input ExpenseWhereInput {
@@ -112,14 +153,82 @@ input ExpenseWhereInput {
   description_not_starts_with: String
   description_ends_with: String
   description_not_ends_with: String
-  ammount: Float
-  ammount_not: Float
-  ammount_in: [Float!]
-  ammount_not_in: [Float!]
-  ammount_lt: Float
-  ammount_lte: Float
-  ammount_gt: Float
-  ammount_gte: Float
+  ammount: Int
+  ammount_not: Int
+  ammount_in: [Int!]
+  ammount_not_in: [Int!]
+  ammount_lt: Int
+  ammount_lte: Int
+  ammount_gt: Int
+  ammount_gte: Int
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  category: String
+  category_not: String
+  category_in: [String!]
+  category_not_in: [String!]
+  category_lt: String
+  category_lte: String
+  category_gt: String
+  category_gte: String
+  category_contains: String
+  category_not_contains: String
+  category_starts_with: String
+  category_not_starts_with: String
+  category_ends_with: String
+  category_not_ends_with: String
+  subcategory: String
+  subcategory_not: String
+  subcategory_in: [String!]
+  subcategory_not_in: [String!]
+  subcategory_lt: String
+  subcategory_lte: String
+  subcategory_gt: String
+  subcategory_gte: String
+  subcategory_contains: String
+  subcategory_not_contains: String
+  subcategory_starts_with: String
+  subcategory_not_starts_with: String
+  subcategory_ends_with: String
+  subcategory_not_ends_with: String
+  start_date: DateTime
+  start_date_not: DateTime
+  start_date_in: [DateTime!]
+  start_date_not_in: [DateTime!]
+  start_date_lt: DateTime
+  start_date_lte: DateTime
+  start_date_gt: DateTime
+  start_date_gte: DateTime
+  end_date: DateTime
+  end_date_not: DateTime
+  end_date_in: [DateTime!]
+  end_date_not_in: [DateTime!]
+  end_date_lt: DateTime
+  end_date_lte: DateTime
+  end_date_gt: DateTime
+  end_date_gte: DateTime
+  days: Float
+  days_not: Float
+  days_in: [Float!]
+  days_not_in: [Float!]
+  days_lt: Float
+  days_lte: Float
+  days_gt: Float
+  days_gte: Float
   AND: [ExpenseWhereInput!]
   OR: [ExpenseWhereInput!]
   NOT: [ExpenseWhereInput!]
@@ -168,6 +277,8 @@ type Post {
   published: Boolean!
   title: String!
   content: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 type PostConnection {
@@ -207,6 +318,8 @@ type PostPreviousValues {
   published: Boolean!
   title: String!
   content: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 type PostSubscriptionPayload {
@@ -284,6 +397,22 @@ input PostWhereInput {
   content_not_starts_with: String
   content_ends_with: String
   content_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [PostWhereInput!]
   OR: [PostWhereInput!]
   NOT: [PostWhereInput!]

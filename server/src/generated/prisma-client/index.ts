@@ -156,7 +156,17 @@ export type ExpenseOrderByInput =
   | "createdAt_ASC"
   | "createdAt_DESC"
   | "updatedAt_ASC"
-  | "updatedAt_DESC";
+  | "updatedAt_DESC"
+  | "category_ASC"
+  | "category_DESC"
+  | "subcategory_ASC"
+  | "subcategory_DESC"
+  | "start_date_ASC"
+  | "start_date_DESC"
+  | "end_date_ASC"
+  | "end_date_DESC"
+  | "days_ASC"
+  | "days_DESC";
 
 export type PostOrderByInput =
   | "id_ASC"
@@ -207,14 +217,82 @@ export interface ExpenseWhereInput {
   description_not_starts_with?: String;
   description_ends_with?: String;
   description_not_ends_with?: String;
-  ammount?: Float;
-  ammount_not?: Float;
-  ammount_in?: Float[] | Float;
-  ammount_not_in?: Float[] | Float;
-  ammount_lt?: Float;
-  ammount_lte?: Float;
-  ammount_gt?: Float;
-  ammount_gte?: Float;
+  ammount?: Int;
+  ammount_not?: Int;
+  ammount_in?: Int[] | Int;
+  ammount_not_in?: Int[] | Int;
+  ammount_lt?: Int;
+  ammount_lte?: Int;
+  ammount_gt?: Int;
+  ammount_gte?: Int;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  category?: String;
+  category_not?: String;
+  category_in?: String[] | String;
+  category_not_in?: String[] | String;
+  category_lt?: String;
+  category_lte?: String;
+  category_gt?: String;
+  category_gte?: String;
+  category_contains?: String;
+  category_not_contains?: String;
+  category_starts_with?: String;
+  category_not_starts_with?: String;
+  category_ends_with?: String;
+  category_not_ends_with?: String;
+  subcategory?: String;
+  subcategory_not?: String;
+  subcategory_in?: String[] | String;
+  subcategory_not_in?: String[] | String;
+  subcategory_lt?: String;
+  subcategory_lte?: String;
+  subcategory_gt?: String;
+  subcategory_gte?: String;
+  subcategory_contains?: String;
+  subcategory_not_contains?: String;
+  subcategory_starts_with?: String;
+  subcategory_not_starts_with?: String;
+  subcategory_ends_with?: String;
+  subcategory_not_ends_with?: String;
+  start_date?: DateTimeInput;
+  start_date_not?: DateTimeInput;
+  start_date_in?: DateTimeInput[] | DateTimeInput;
+  start_date_not_in?: DateTimeInput[] | DateTimeInput;
+  start_date_lt?: DateTimeInput;
+  start_date_lte?: DateTimeInput;
+  start_date_gt?: DateTimeInput;
+  start_date_gte?: DateTimeInput;
+  end_date?: DateTimeInput;
+  end_date_not?: DateTimeInput;
+  end_date_in?: DateTimeInput[] | DateTimeInput;
+  end_date_not_in?: DateTimeInput[] | DateTimeInput;
+  end_date_lt?: DateTimeInput;
+  end_date_lte?: DateTimeInput;
+  end_date_gt?: DateTimeInput;
+  end_date_gte?: DateTimeInput;
+  days?: Float;
+  days_not?: Float;
+  days_in?: Float[] | Float;
+  days_not_in?: Float[] | Float;
+  days_lt?: Float;
+  days_lte?: Float;
+  days_gt?: Float;
+  days_gte?: Float;
   AND?: ExpenseWhereInput[] | ExpenseWhereInput;
   OR?: ExpenseWhereInput[] | ExpenseWhereInput;
   NOT?: ExpenseWhereInput[] | ExpenseWhereInput;
@@ -269,6 +347,22 @@ export interface PostWhereInput {
   content_not_starts_with?: String;
   content_ends_with?: String;
   content_not_ends_with?: String;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
   AND?: PostWhereInput[] | PostWhereInput;
   OR?: PostWhereInput[] | PostWhereInput;
   NOT?: PostWhereInput[] | PostWhereInput;
@@ -276,17 +370,32 @@ export interface PostWhereInput {
 
 export interface ExpenseCreateInput {
   description: String;
-  ammount: Float;
+  ammount: Int;
+  category: String;
+  subcategory?: String;
+  start_date: DateTimeInput;
+  end_date?: DateTimeInput;
+  days: Float;
 }
 
 export interface ExpenseUpdateInput {
   description?: String;
-  ammount?: Float;
+  ammount?: Int;
+  category?: String;
+  subcategory?: String;
+  start_date?: DateTimeInput;
+  end_date?: DateTimeInput;
+  days?: Float;
 }
 
 export interface ExpenseUpdateManyMutationInput {
   description?: String;
-  ammount?: Float;
+  ammount?: Int;
+  category?: String;
+  subcategory?: String;
+  start_date?: DateTimeInput;
+  end_date?: DateTimeInput;
+  days?: Float;
 }
 
 export interface PostCreateInput {
@@ -336,13 +445,27 @@ export interface NodeNode {
 export interface Expense {
   id: ID_Output;
   description: String;
-  ammount: Float;
+  ammount: Int;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  category: String;
+  subcategory?: String;
+  start_date: DateTimeOutput;
+  end_date?: DateTimeOutput;
+  days: Float;
 }
 
 export interface ExpensePromise extends Promise<Expense>, Fragmentable {
   id: () => Promise<ID_Output>;
   description: () => Promise<String>;
-  ammount: () => Promise<Float>;
+  ammount: () => Promise<Int>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  category: () => Promise<String>;
+  subcategory: () => Promise<String>;
+  start_date: () => Promise<DateTimeOutput>;
+  end_date: () => Promise<DateTimeOutput>;
+  days: () => Promise<Float>;
 }
 
 export interface ExpenseSubscription
@@ -350,7 +473,14 @@ export interface ExpenseSubscription
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   description: () => Promise<AsyncIterator<String>>;
-  ammount: () => Promise<AsyncIterator<Float>>;
+  ammount: () => Promise<AsyncIterator<Int>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  category: () => Promise<AsyncIterator<String>>;
+  subcategory: () => Promise<AsyncIterator<String>>;
+  start_date: () => Promise<AsyncIterator<DateTimeOutput>>;
+  end_date: () => Promise<AsyncIterator<DateTimeOutput>>;
+  days: () => Promise<AsyncIterator<Float>>;
 }
 
 export interface ExpenseConnection {
@@ -435,6 +565,8 @@ export interface Post {
   published: Boolean;
   title: String;
   content: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
 }
 
 export interface PostPromise extends Promise<Post>, Fragmentable {
@@ -442,6 +574,8 @@ export interface PostPromise extends Promise<Post>, Fragmentable {
   published: () => Promise<Boolean>;
   title: () => Promise<String>;
   content: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface PostSubscription
@@ -451,6 +585,8 @@ export interface PostSubscription
   published: () => Promise<AsyncIterator<Boolean>>;
   title: () => Promise<AsyncIterator<String>>;
   content: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface PostConnection {
@@ -551,7 +687,14 @@ export interface ExpenseSubscriptionPayloadSubscription
 export interface ExpensePreviousValues {
   id: ID_Output;
   description: String;
-  ammount: Float;
+  ammount: Int;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  category: String;
+  subcategory?: String;
+  start_date: DateTimeOutput;
+  end_date?: DateTimeOutput;
+  days: Float;
 }
 
 export interface ExpensePreviousValuesPromise
@@ -559,7 +702,14 @@ export interface ExpensePreviousValuesPromise
     Fragmentable {
   id: () => Promise<ID_Output>;
   description: () => Promise<String>;
-  ammount: () => Promise<Float>;
+  ammount: () => Promise<Int>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  category: () => Promise<String>;
+  subcategory: () => Promise<String>;
+  start_date: () => Promise<DateTimeOutput>;
+  end_date: () => Promise<DateTimeOutput>;
+  days: () => Promise<Float>;
 }
 
 export interface ExpensePreviousValuesSubscription
@@ -567,7 +717,14 @@ export interface ExpensePreviousValuesSubscription
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   description: () => Promise<AsyncIterator<String>>;
-  ammount: () => Promise<AsyncIterator<Float>>;
+  ammount: () => Promise<AsyncIterator<Int>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  category: () => Promise<AsyncIterator<String>>;
+  subcategory: () => Promise<AsyncIterator<String>>;
+  start_date: () => Promise<AsyncIterator<DateTimeOutput>>;
+  end_date: () => Promise<AsyncIterator<DateTimeOutput>>;
+  days: () => Promise<AsyncIterator<Float>>;
 }
 
 export interface PostSubscriptionPayload {
@@ -600,6 +757,8 @@ export interface PostPreviousValues {
   published: Boolean;
   title: String;
   content: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
 }
 
 export interface PostPreviousValuesPromise
@@ -609,6 +768,8 @@ export interface PostPreviousValuesPromise
   published: () => Promise<Boolean>;
   title: () => Promise<String>;
   content: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface PostPreviousValuesSubscription
@@ -618,6 +779,8 @@ export interface PostPreviousValuesSubscription
   published: () => Promise<AsyncIterator<Boolean>>;
   title: () => Promise<AsyncIterator<String>>;
   content: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 /*
@@ -632,14 +795,24 @@ The `String` scalar type represents textual data, represented as UTF-8 character
 export type String = string;
 
 /*
-The `Float` scalar type represents signed double-precision fractional values as specified by [IEEE 754](http://en.wikipedia.org/wiki/IEEE_floating_point). 
-*/
-export type Float = number;
-
-/*
 The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. 
 */
 export type Int = number;
+
+/*
+DateTime scalar input type, allowing Date
+*/
+export type DateTimeInput = Date | string;
+
+/*
+DateTime scalar output type, which is always a string
+*/
+export type DateTimeOutput = string;
+
+/*
+The `Float` scalar type represents signed double-precision fractional values as specified by [IEEE 754](https://en.wikipedia.org/wiki/IEEE_floating_point). 
+*/
+export type Float = number;
 
 /*
 The `Boolean` scalar type represents `true` or `false`.
@@ -670,6 +843,6 @@ export const models: Model[] = [
 export const Prisma = makePrismaClientClass<ClientConstructor<Prisma>>({
   typeDefs,
   models,
-  endpoint: `https://travel-budget-3d59e145b7.herokuapp.com/my-app/dev`
+  endpoint: `https://eu1.prisma.sh/public-nebulacarp-301/my-app/dev`
 });
 export const prisma = new Prisma();
