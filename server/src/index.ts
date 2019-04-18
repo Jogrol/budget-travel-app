@@ -24,20 +24,31 @@ const resolvers = {
      createDraft(parent, { title, content }, context: Context) {
       return context.prisma.createPost({ title, content })
     },
-    createExpense(parent, { description, ammount }, context: Context) {
+    createExpense(parent, { description, ammount, category, subcategory, start_date, end_date, days }, context: Context) {
       return context.prisma.createExpense({ 
-        description, 
-        ammount })
+        description,
+        ammount,
+        category,
+        subcategory,
+        start_date,
+        end_date,
+        days
+       })
     },
     deleteExpense(parent, { id }, context: Context) {
       return context.prisma.deleteExpense({ id })
     },
-    updateExpense(parent, { id, description, ammount }, context: Context) {
+    updateExpense(parent, { id, description, ammount,category,subcategory,start_date,end_date,days }, context: Context) {
       return context.prisma.updateExpense({
         where: { id },
         data: {
           description,
-          ammount
+          ammount,
+          category,
+          subcategory,
+          start_date,
+          end_date,
+          days
         }
       })
     },

@@ -12,7 +12,7 @@ type Mutation {
   publish(id: ID!): Post
   updateExpense(id: ID!, description: String!, ammount: Float): Expense
   deleteExpense(id: ID!): Expense
-  createExpense(description: String!, ammount: Float!): Expense
+  createExpense(description: String!, ammount: Float!, category: String!, subcategory: String, start_date: Date!, end_date: Date, days: Float): Expense
 }
 
 type Post {
@@ -25,5 +25,14 @@ type Post {
 type Expense {
   id: ID!
   description: String!
-  ammount: Float!
+  ammount: Int!
+  createdAt: Date!
+  updatedAt: Date!
+  category: String!
+  subcategory: String
+  start_date: Date!
+  end_date: Date
+  days: Float!
 }
+
+scalar Date

@@ -10,6 +10,7 @@ const GET_EXPENSES = gql`
           id
           description
           ammount
+          category
       }
     }
 `;

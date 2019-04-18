@@ -44,6 +44,7 @@ function ExpensesList(props) {
         <TableHead>
           <TableRow>
             <TableCell>Description</TableCell>
+            <TableCell align="center">Category</TableCell>
             <TableCell align="right">Ammount</TableCell>
           </TableRow>
         </TableHead>
@@ -52,6 +53,9 @@ function ExpensesList(props) {
             <TableRow key={row.id}>
                <TableCell component="th" scope="row">
                <Link to ={`/expenses/${row.id}/`} style={{ color: 'inherit', textDecoration: 'none'}}>{row.description}</Link>
+              </TableCell>
+              <TableCell align="center" component="th" scope="row">
+              {row.category}
               </TableCell>
               <TableCell align="right" component="th" scope="row">
                 € {row.ammount}
