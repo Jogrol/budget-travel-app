@@ -38,10 +38,10 @@ export default function UpdateExpenseForm (props) {
                     />
                     <br/>
                     <TextField
-                        id="ammount"
-                        label="ammount"
-                        placeholder="ammount"
-                        name="ammount" 
+                        id="amount"
+                        label="amount"
+                        placeholder="amount"
+                        name="amount" 
                         value={props.values.ammount}
                         onChange={props.onChange}
                         margin="normal"

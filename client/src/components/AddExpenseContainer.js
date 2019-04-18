@@ -9,7 +9,7 @@ const CREATE_EXPENSE = gql`
     createExpense(description: $description, ammount: $ammount) {
       id
       description
-      ammount
+      amount
     }
   }
 `
@@ -17,7 +17,7 @@ class AddExpenseContainer extends Component {
 
     state = {
         description: '',
-        ammount: ' ',
+        amount: ' ',
         open: false,
    
     }
@@ -39,12 +39,12 @@ class AddExpenseContainer extends Component {
     onSubmit = (event) => {
         event.preventDefault()
         const description = this.state.description
-        const ammount = Number(this.state.ammount)
+        const amount = Number(this.state.amount)
         this.props.createExpense({
-          variables: {description, ammount}
+          variables: {description, amount}
         })
         .catch(error => console.log(error))
-        this.setState({ open: false , description: '', ammount: ' '});
+        this.setState({ open: false , description: '', amount: ' '});
       }
 
     render() {

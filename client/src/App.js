@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import NavBar from './components/NavBar';
 import ExpenseListContainer from './components/ExpensesListContainer'
 import ExpenseDetailsContainer from './components/ExpenseDetailsContainer'
+import AddExpenseContainer from './components/AddExpenseContainer'
+
 import { Route } from 'react-router-dom'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faCoffee, faEdit, faPlusCircle, faTimes } from '@fortawesome/free-solid-svg-icons'
@@ -20,6 +22,7 @@ class App extends Component {
         </header>
           <Route path="/" exact component={ExpenseListContainer} />
           <Route path="/expenses/:id" exact component={ExpenseDetailsContainer} />
+          <Route path="/add-expense" exact component={AddExpenseContainer} />
       </div>
     );
   }

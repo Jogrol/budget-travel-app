@@ -34,7 +34,7 @@ const { classes } = props;
                     Description: {props.expense.description}
                 </Typography>
                 <Typography gutterBottom variant="h6" component="h4">
-                    Cost: € {props.expense.ammount}
+                    Cost: € {props.expense.amount}
                 </Typography>
                 <div>
                 <UpdateExpenseFormContainer expense={props.expense}/>

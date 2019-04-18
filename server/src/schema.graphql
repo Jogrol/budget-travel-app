@@ -10,9 +10,9 @@ type Mutation {
   createDraft(title: String!, content: String): Post
   deletePost(id: ID!): Post
   publish(id: ID!): Post
-  updateExpense(id: ID!, description: String!, ammount: Float): Expense
+  updateExpense(id: ID!, description: String!, amount: Int!): Expense
   deleteExpense(id: ID!): Expense
-  createExpense(description: String!, ammount: Float!, category: String!, subcategory: String, start_date: Date!, end_date: Date, days: Float): Expense
+  createExpense(description: String!, amount: Int!, category: String!, subcategory: String, start_date: Date!, end_date: Date, days: Float): Expense
 }
 
 type Post {
@@ -25,7 +25,7 @@ type Post {
 type Expense {
   id: ID!
   description: String!
-  ammount: Int!
+  amount: Int!
   createdAt: Date!
   updatedAt: Date!
   category: String!

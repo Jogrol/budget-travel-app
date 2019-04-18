@@ -19,7 +19,7 @@ scalar DateTime
 type Expense {
   id: ID!
   description: String!
-  ammount: Int!
+  amount: Int!
   createdAt: DateTime!
   updatedAt: DateTime!
   category: String!
@@ -37,7 +37,7 @@ type ExpenseConnection {
 
 input ExpenseCreateInput {
   description: String!
-  ammount: Int!
+  amount: Int!
   category: String!
   subcategory: String
   start_date: DateTime!
@@ -55,8 +55,8 @@ enum ExpenseOrderByInput {
   id_DESC
   description_ASC
   description_DESC
-  ammount_ASC
-  ammount_DESC
+  amount_ASC
+  amount_DESC
   createdAt_ASC
   createdAt_DESC
   updatedAt_ASC
@@ -76,7 +76,7 @@ enum ExpenseOrderByInput {
 type ExpensePreviousValues {
   id: ID!
   description: String!
-  ammount: Int!
+  amount: Int!
   createdAt: DateTime!
   updatedAt: DateTime!
   category: String!
@@ -106,7 +106,7 @@ input ExpenseSubscriptionWhereInput {
 
 input ExpenseUpdateInput {
   description: String
-  ammount: Int
+  amount: Int
   category: String
   subcategory: String
   start_date: DateTime
@@ -116,7 +116,7 @@ input ExpenseUpdateInput {
 
 input ExpenseUpdateManyMutationInput {
   description: String
-  ammount: Int
+  amount: Int
   category: String
   subcategory: String
   start_date: DateTime
@@ -153,14 +153,14 @@ input ExpenseWhereInput {
   description_not_starts_with: String
   description_ends_with: String
   description_not_ends_with: String
-  ammount: Int
-  ammount_not: Int
-  ammount_in: [Int!]
-  ammount_not_in: [Int!]
-  ammount_lt: Int
-  ammount_lte: Int
-  ammount_gt: Int
-  ammount_gte: Int
+  amount: Int
+  amount_not: Int
+  amount_in: [Int!]
+  amount_not_in: [Int!]
+  amount_lt: Int
+  amount_lte: Int
+  amount_gt: Int
+  amount_gte: Int
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]

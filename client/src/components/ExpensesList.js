@@ -11,6 +11,8 @@ import { Link } from 'react-router-dom'
 import Card from '@material-ui/core/Card';
 import { CardContent } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { IconButton } from '@material-ui/core';
 
 const styles = theme => ({
   root: {
@@ -26,26 +28,21 @@ const styles = theme => ({
 function ExpensesList(props) {
   const { classes, expenses } = props;
 
-  console.log(expenses)
-  //const avgPricePerEvent = ticketsFilteredByEvent.reduce((prev, ticket) => prev + Number(ticket.price), 0)/ticketsFilteredByEvent.length
   return (
     <Paper className={classes.root}>
        <Card>
          <CardContent>
           <Typography gutterBottom variant="h4" component="h2">
-                    Your total expense is: € {expenses.reduce((prev, expense) => prev + expense.ammount,0)}
+                    Your total expense is: € {Number(expenses.reduce((prev, expense) => prev + expense.amount,0))}
               </Typography>
-          {/* <Typography gutterBottom variant="h4" component="h2">
-                    and average spend is: € {Math.round(expenses.reduce((prev, expense) => prev + expense.ammount,0)/expenses.length)}
-              </Typography> */}
          </CardContent>
        </Card>
       <Table className={classes.table}>
         <TableHead>
           <TableRow>
             <TableCell>Description</TableCell>
-            <TableCell align="center">Category</TableCell>
-            <TableCell align="right">Ammount</TableCell>
+            <TableCell>Category</TableCell>
+            <TableCell>Amount</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -54,15 +51,16 @@ function ExpensesList(props) {
                <TableCell component="th" scope="row">
                <Link to ={`/expenses/${row.id}/`} style={{ color: 'inherit', textDecoration: 'none'}}>{row.description}</Link>
               </TableCell>
-              <TableCell align="center" component="th" scope="row">
+              <TableCell>
               {row.category}
               </TableCell>
-              <TableCell align="right" component="th" scope="row">
-                € {row.ammount}
+              <TableCell>
+                € {row.amount}
               </TableCell>
             </TableRow>
           ))}
         </TableBody>
+        <TableCell><Link to ={`/add-expense`} style={{ color: 'inherit', textDecoration: 'none'}}><IconButton><FontAwesomeIcon icon="plus-circle" /></IconButton></Link></TableCell>
       </Table>
     </Paper>
   );

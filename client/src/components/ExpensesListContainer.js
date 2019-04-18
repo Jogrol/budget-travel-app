@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import ExpensesList from './ExpensesList'
-import AddExpenseContainer from './AddExpenseContainer'
 import gql from 'graphql-tag'
 import {Query} from 'react-apollo'
 
@@ -9,7 +8,7 @@ const GET_EXPENSES = gql`
       expenses{
           id
           description
-          ammount
+          amount
           category
       }
     }
@@ -29,7 +28,6 @@ export default class ExpensesListContainer extends Component {
             expenses={data.expenses} 
             delete={this.deleteExpense}
             handleClickOpen={this.handleClickOpen}/>
-        <AddExpenseContainer />
         </div>
 
       );

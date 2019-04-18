@@ -10,7 +10,7 @@ type Post {
 type Expense {
   id: ID! @id
   description: String!
-  ammount: Int!
+  amount: Int!
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
   category: String!

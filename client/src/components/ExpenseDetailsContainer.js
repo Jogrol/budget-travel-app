@@ -9,7 +9,7 @@ const GET_EXPENSE = gql`
     expense(id: $id){
         id
         description
-        ammount
+        amount
     }
   }
 `;
@@ -19,7 +19,7 @@ const DELETE_EXPENSE = gql`
     deleteExpense(id: $id) {
       id
       description
-      ammount
+      amount
     }
   }
 `
