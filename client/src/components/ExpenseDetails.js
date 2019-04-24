@@ -20,9 +20,6 @@ const styles = {
 
 function ExpenseDetails(props) {
 
-
-const { classes } = props;
-
   return (
     <div>
         <Card>
