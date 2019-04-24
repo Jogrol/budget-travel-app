@@ -68,9 +68,7 @@ class AddExpenseContainer extends Component {
       }
 
     render() {
-      console.log(this.state)
         return (
-          
         <div>
             <AddExpenseForm  
                 onSubmit={this.onSubmit}

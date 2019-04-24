@@ -10,8 +10,8 @@ export default function AddExpenseForm (props) {
     return(
         <React.Fragment>
             <Link to ={`/`} style={{ color: 'inherit', textDecoration: 'none'}}><IconButton  style={{float: 'right'}}><FontAwesomeIcon icon="times" /></IconButton></Link>
-            <Grid container spacing={24}>
-                <Grid>
+            <Grid container spacing={4}>
+                <Grid >
                     <Typography gutterBottom variant="h4" component="h2">
                         What did you spend?
                     </Typography>
@@ -42,7 +42,7 @@ export default function AddExpenseForm (props) {
                 <Grid>
                     <FormLabel>Category</FormLabel>
                             <RadioGroup
-                                aria-label="Category"
+                                label="Category"
                                 name="category"
                                 value={props.values.category}
                                 onChange={props.onChange}
@@ -53,13 +53,11 @@ export default function AddExpenseForm (props) {
                                 <FormControlLabel value="Shopping" control={<Radio />} label="Shopping" />
                                 <FormControlLabel value="Fun" control={<Radio />} label="Fun" />
                             </RadioGroup>
-                </Grid>
-                <Grid>
                     {props.values.category === "Accommodation" && 
                     <div>
                         <FormLabel>Subcategory</FormLabel>
                             <RadioGroup
-                                aria-label="subcategory"
+                                label="subcategory"
                                 name="subcategory"
                                 value={props.values.subcategory}
                                 onChange={props.onChange}
@@ -77,7 +75,7 @@ export default function AddExpenseForm (props) {
                         <div>
                         <FormLabel>Subcategory</FormLabel>
                             <RadioGroup
-                                aria-label="subcategory"
+                                label="subcategory"
                                 name="subcategory"
                                 value={props.values.subcategory}
                                 onChange={props.onChange}
@@ -95,7 +93,7 @@ export default function AddExpenseForm (props) {
                         <div>
                         <FormLabel>Subcategory</FormLabel>
                             <RadioGroup
-                                aria-label="subcategory"
+                                label="subcategory"
                                 name="subcategory"
                                 value={props.values.subcategory}
                                 onChange={props.onChange}
@@ -127,7 +125,7 @@ export default function AddExpenseForm (props) {
                         }
                 </Grid>
                 <Grid>
-                    <FormControl>
+                    {/* <FormControl>
                     <InputLabel>
                         country
                         </InputLabel>
@@ -138,7 +136,7 @@ export default function AddExpenseForm (props) {
                         {countries.map(country => {
                         return <MenuItem value={country}>{country}</MenuItem>})}
                         </Select>
-                    </FormControl>
+                    </FormControl> */}
                 </Grid>
                 <Grid>
                     <form>
@@ -147,7 +145,8 @@ export default function AddExpenseForm (props) {
                             label="Start date"
                             name="start_date"
                             type="date"
-                            defaultValue={new Date()}
+                            placeholder={Date()}
+                            // defaultValue={new Date()}
                             onChange={props.onChange}
                             value={props.values.start_date}
                             InputLabelProps={{
@@ -176,14 +175,15 @@ export default function AddExpenseForm (props) {
                             label="End date"
                             name="end_date"
                             type="date"
+                            placeholder={props.values.start_date}
                             onChange={props.onChange}
-                            defaultValue={props.values.start_date+props.values.days}
+                            // defaultValue={props.values.start_date}
                             value={props.values.end_date}
                             InputLabelProps={{
                             shrink: true,
                             }}
                         />
-                    </form>        
+                    </form> 
                 </Grid>
                 <form onSubmit={props.onSubmit} >
                     <Button type="submit" variant="contained">Submit</Button>
