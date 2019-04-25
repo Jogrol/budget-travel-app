@@ -4,19 +4,20 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'react-router-dom'
 import {countries} from './countries'
+import moment from 'moment';
 
 export default function AddExpenseForm (props) {
 
     return(
         <React.Fragment>
             <Link to ={`/`} style={{ color: 'inherit', textDecoration: 'none'}}><IconButton  style={{float: 'right'}}><FontAwesomeIcon icon="times" /></IconButton></Link>
-            <Grid container spacing={4}>
-                <Grid >
+            <Grid container spacing={12}>
+                <Grid item xs={12}>
                     <Typography gutterBottom variant="h4" component="h2">
                         What did you spend?
                     </Typography>
                 </Grid>
-                <Grid >
+                <Grid item xs={12} >
                     <TextField
                             id="description"
                             label="description"
@@ -26,7 +27,7 @@ export default function AddExpenseForm (props) {
                             onChange={props.onChange}
                         />
                 </Grid>
-                <Grid>
+                <Grid item xs={12} >
                     <TextField
                             id="amount"
                             label="amount"
@@ -39,22 +40,24 @@ export default function AddExpenseForm (props) {
                             }}
                         />
                 </Grid>
-                <Grid>
-                    <FormLabel>Category</FormLabel>
-                            <RadioGroup
-                                label="Category"
-                                name="category"
-                                value={props.values.category}
-                                onChange={props.onChange}
-                                >
-                                <FormControlLabel value="Accommodation" control={<Radio />} label="Accommodation" />
-                                <FormControlLabel value="Food" control={<Radio />} label="Food" />
-                                <FormControlLabel value="Transport" control={<Radio />} label="Transport" />
-                                <FormControlLabel value="Shopping" control={<Radio />} label="Shopping" />
-                                <FormControlLabel value="Fun" control={<Radio />} label="Fun" />
-                            </RadioGroup>
+                    <Grid item xs={6}>
+                        <FormLabel>Category</FormLabel>
+                                <RadioGroup
+                                    label="Category"
+                                    name="category"
+                                    value={props.values.category}
+                                    onChange={props.onChange}
+                                    >
+                                    <FormControlLabel value="Accommodation" control={<Radio />} label="Accommodation" />
+                                    <FormControlLabel value="Food" control={<Radio />} label="Food" />
+                                    <FormControlLabel value="Transport" control={<Radio />} label="Transport" />
+                                    <FormControlLabel value="Shopping" control={<Radio />} label="Shopping" />
+                                    <FormControlLabel value="Fun" control={<Radio />} label="Fun" />
+                                </RadioGroup>
+                    </Grid>
+                    <Grid item xs={6}>
                     {props.values.category === "Accommodation" && 
-                    <div>
+                        <div>
                         <FormLabel>Subcategory</FormLabel>
                             <RadioGroup
                                 label="subcategory"
@@ -90,7 +93,7 @@ export default function AddExpenseForm (props) {
                         </div>
                         }
                         {props.values.category === "Transport" && 
-                        <div>
+                       <div>
                         <FormLabel>Subcategory</FormLabel>
                             <RadioGroup
                                 label="subcategory"
@@ -123,39 +126,20 @@ export default function AddExpenseForm (props) {
                             </RadioGroup>
                         </div>
                         }
+                    </Grid>
+                <Grid item xs={4}>
+                    <TextField
+                        label="Start date"
+                        name="start_date"
+                        type="date"
+                        onChange={props.onChange}
+                        defaultValue={moment().format("YYYY-MM-DD")}
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
+                    />      
                 </Grid>
-                <Grid>
-                    {/* <FormControl>
-                    <InputLabel>
-                        country
-                        </InputLabel>
-                        <Select
-                            value={props.values.country}
-                            onChange={props.handleChange}
-                        >
-                        {countries.map(country => {
-                        return <MenuItem value={country}>{country}</MenuItem>})}
-                        </Select>
-                    </FormControl> */}
-                </Grid>
-                <Grid>
-                    <form>
-                        <TextField
-                            id="date"
-                            label="Start date"
-                            name="start_date"
-                            type="date"
-                            placeholder={Date()}
-                            // defaultValue={new Date()}
-                            onChange={props.onChange}
-                            value={props.values.start_date}
-                            InputLabelProps={{
-                                shrink: true,
-                            }}
-                        />
-                    </form>        
-                </Grid>
-                <Grid>
+                <Grid item xs={4}>
                     <TextField
                         id="filled-number"
                         label="Days"
@@ -168,28 +152,21 @@ export default function AddExpenseForm (props) {
                         }}
                         />
                     </Grid>
-                <Grid>
-                    <form>
-                        <TextField
-                            id="date"
-                            label="End date"
-                            name="end_date"
-                            type="date"
-                            placeholder={props.values.start_date}
-                            onChange={props.onChange}
-                            // defaultValue={props.values.start_date}
-                            value={props.values.end_date}
-                            InputLabelProps={{
-                            shrink: true,
-                            }}
-                        />
-                    </form> 
-                </Grid>
+                <Grid item xs={4}>
+                    <TextField
+                        id="date"
+                        label="End date"
+                        name="end_date"
+                        type="date"
+                        onChange={props.onChange}
+                        value={moment(props.values.start_date).add(props.values.days, 'days').format("YYYY-MM-DD")}
+                        InputLabelProps={{shrink: true}}
+                            />
+                    </Grid >
                 <form onSubmit={props.onSubmit} >
                     <Button type="submit" variant="contained">Submit</Button>
                 </form>
-                
-            </Grid>
+                </Grid>
      </React.Fragment>
     )
 } 
