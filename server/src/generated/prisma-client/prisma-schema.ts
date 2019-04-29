@@ -26,7 +26,7 @@ type Expense {
   subcategory: String
   start_date: DateTime!
   end_date: DateTime
-  days: Float!
+  days: Float
 }
 
 type ExpenseConnection {

@@ -24,7 +24,7 @@ type Post {
 
 type Expense {
   id: ID!
-  description: String!
+  description: String
   amount: Int!
   createdAt: Date!
   updatedAt: Date!
